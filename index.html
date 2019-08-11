@@ -1,11 +1,26 @@
 <html>
 <head>
-  <script src="/static/init.js" charset="utf-8"></script>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.2.0/fabric.min.js" charset="utf-8"></script>
+
 </head>
 
-    <h1>
-    Maps Draw
-    </h1>
+<h1>
+Maps Draw
+</h1>
+
+<canvas id="c" width="500" height="400" style="border:1px solid #000000;">
+</canvas>
+<break>
+<break>
+<button onclick="rendertoSVG()">Render</button>
+<div id='renders'>
+</div>
+
+<div id="raw_svg">
+</div>
+
+  <script src="/static/init.js" charset="utf-8"></script>
 
    
 </html>

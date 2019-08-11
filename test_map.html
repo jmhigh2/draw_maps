@@ -24,20 +24,22 @@
 <p id="demo">YES</p>
 <p id="lat"> </p>
 <p id="lng"> </p>
+<p id="size"> </p>
 <button type="button" onclick="Onclickcsutom()">Try it</button>
     <div id="map">
-        <<script>
+        <script>
             var labels = 'NOPE'
             var labelIndex = 0
-            var latvar = -31.9546781
-            var lngvar = 115.852662
+            var latvar = [-31.9546781]
+            var lngvar = [115.852662]
             function UpdateLocation() {
               
-              document.getElementById("lat").innerHTML = document.getElementById("fname").value;
-              document.getElementById("lng").innerHTML = document.getElementById("lname").value;
-              
-              latvar = document.getElementById("fname").value;
-              lngvar = document.getElementById("lname").value;
+              latvar.push(parseFloat(document.getElementById("fname").value));
+              lngvar.push(parseFloat(document.getElementById("lname").value));
+              document.getElementById("lat").innerHTML = latvar;
+              document.getElementById("lng").innerHTML = lngvar;
+              document.getElementById("demo").innerHTML = 'hello';
+              document.getElementById("size").innerHTML = lngvar.length;
               labels = document.getElementById("demo").innerHTML;
               //labelIndex = 0;
             }
@@ -79,9 +81,13 @@
           }
         
         function Onclickcsutom(){
-            var uluru2 = {lat: parseFloat(latvar),lng:  parseFloat(lngvar)}
-            addMarker(uluru2, map);
-            map.setCenter(uluru2);
+            var i =0;
+            for (i = 0; i < latvar.length; i++){
+                var uluru2 = {lat: latvar[i],lng: lngvar[i]}
+                addMarker(uluru2, map);
+                map.setCenter(uluru2);
+            }    
+           
         }
           
 
@@ -91,21 +97,6 @@
             src="https://maps.google.com/maps/api/js?key=AIzaSyDWV7zyVYTeF6axFy5w7gtZVx__QakS8-0&callback=initMap">
         </script>
         
-        <!--script>
-            function initMap() {
-                var myLatlng = new google.maps.LatLng(-31.9546781,115.852662);
-                var mapOptions = {
-                    zoom: 14,
-                    center: myLatlng,
-                    disableDefaultUI: true
-                }
-                var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-            }
-        </script>
-        
-        <script async defer
-            src="https://maps.google.com/maps/api/js?callback=initMap">
-        </script-->
         
     </div>
   </body>

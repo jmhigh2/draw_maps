@@ -21,7 +21,7 @@
     <body>
 
 <h1>A Web Page</h1>
-<p id="demo">YES</p>
+<p id="demo">BOOM</p>
 <p id="lat"> </p>
 <p id="lng"> </p>
 <p id="size"> </p>
@@ -35,13 +35,13 @@
             function UpdateLocation() {
               
               latvar.push(parseFloat(document.getElementById("fname").value));
-              lngvar.push(parseFloat(document.getElementById("lname").value));
+              lngvar.push(parseFloat(document.getElementById("lname").value)+1);
+              document.getElementById("lname").value = parseFloat(document.getElementById("lname").value)+1;
               document.getElementById("lat").innerHTML = latvar;
               document.getElementById("lng").innerHTML = lngvar;
-              document.getElementById("demo").innerHTML = 'hello';
               document.getElementById("size").innerHTML = lngvar.length;
               labels = document.getElementById("demo").innerHTML;
-              //labelIndex = 0;
+              labelIndex = 0;
             }
         
             // In the following example, markers appear when the user clicks on the map.

@@ -16,7 +16,9 @@ function rendertoSVG()
 
   svg.innerHTML = doc.documentElement.outerHTML;
 
-  var path = doc.documentElement['children'][2]['childNodes'][1]['attributes'][2]
+  var path = doc.documentElement['children'][2]['childNodes'][1]['attributes'][2]['nodeValue'];
+  path_object = SVGPathParser(path);
+  normalized_path = SVGPathNormalizer(path_object);
 
-  console.log(path);
+  console.log(normalized_path);
 }

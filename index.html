@@ -2,7 +2,13 @@
 <head>
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.2.0/fabric.min.js" charset="utf-8"></script>
-
+ <style>
+      #map {
+        width: 100%;
+        height: 400px;
+        background-color: grey;
+      }
+    </style>
 </head>
 
 <h1>
@@ -18,6 +24,26 @@ Maps Draw
 </div>
 
 <div id="raw_svg">
+</div>
+    
+<h3>My Google Maps Demo</h3>
+<!--The div element for the map -->
+<form>
+  First name: <input id="fname" type="text" name="fname" value="0"><br>
+  Last name: <input id="lname" type="text" name="lname"  value="0"><br>
+</form>
+<button type="button" onclick="addLocation()">Input into array</button>
+<div>
+   <button type="button" onclick="addToMap()">Update Map</button>
+</div>
+
+<div id="map">
+    <script src="/static/gmap.js" charset="utf-8"></script>
+    <script async defer
+        src="https://maps.google.com/maps/api/js?key=AIzaSyDWV7zyVYTeF6axFy5w7gtZVx__QakS8-0&callback=initMap">
+    </script>
+
+
 </div>
 
   <script src="/static/path_parser.js"></script>

@@ -1,7 +1,7 @@
 var labels = 'What the Fuck';
 var labelIndex = 0;
-var latvar = [-31.9546781]; //first position
-var lngvar = [115.852662];  //first position
+var latvar = [0]; //first position
+var lngvar = [0];  //first position
 var map;
 
 function addLocation() {

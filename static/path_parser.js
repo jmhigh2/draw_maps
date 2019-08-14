@@ -44,8 +44,8 @@ function SVGPathNormalizer(path_list) //takes original coordinate and subtracts 
   original_x = path_list[0][1];
   original_y = path_list[0][2];
 
-  console.log(original_x);
-  console.log(original_y);
+  //console.log(original_x);
+  //console.log(original_y);
 
   for(i = 0; i < path_list.length; i++)
   {

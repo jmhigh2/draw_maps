@@ -20,9 +20,9 @@ function RenderToSVG() {
     var coordinates = CreateCoordinatesfromPath(-71.000000000001, -31.0000000000001, SCALE, normalized_path);
     
     document.getElementById("coor").innerHTML = coordinates;
-    addCoordinates(coordinates);
-    addLocation();
-    addToMap();
+    addCoordinates(coordinates); // FOR DEBUGGING
+    addLocation(); // FOR DEBUGGING
+    addToMap(coordinates);
     console.log("Coordinates placeholder: ")
     console.log(coordinates)
 }

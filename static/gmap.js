@@ -4,6 +4,7 @@ var latvar = [0]; //first position
 var lngvar = [0];  //first position
 var map;
 
+// FOR Debugging 
 function addLocation() {
   document.getElementById("lat").innerHTML = latvar;
   document.getElementById("lng").innerHTML = lngvar;
@@ -30,16 +31,16 @@ function addMarker(location, map) {
     });
 }
 
-function addToMap(){
+function addToMap(coordinates){
     var i =0;
-    for (i = 0; i < latvar.length; i++){
-        var uluru2 = {lat: latvar[i],lng: lngvar[i]}
+    for (i = 0; i < coordinates.length; i++){
+        var uluru2 = {lat: coordinates[i][1],lng: coordinates[i][0]}
         addMarker(uluru2, map);
         map.setCenter(uluru2);
     }    
 
 }
-
+// FOR DEBUGGING
 function addCoordinates(coordinates){
     var i =0;
     for (i = 0; i < coordinates.length; i++){

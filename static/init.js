@@ -15,10 +15,14 @@ function RenderToSVG() {
     var path = doc.documentElement['children'][2]['childNodes'][1]['attributes'][2]['nodeValue'];
     var path_object = SVGPathParser(path);
     var normalized_path = SVGPathNormalizer(path_object);
-    var SCALE = 0.000005;
+    var SCALE = 0.005;//0.000005
     //console.log(normalized_path);
     var coordinates = CreateCoordinatesfromPath(-71.000000000001, -31.0000000000001, SCALE, normalized_path);
-
+    
+    document.getElementById("coor").innerHTML = coordinates;
+    addCoordinates(coordinates);
+    addLocation();
+    addToMap();
     console.log("Coordinates placeholder: ")
     console.log(coordinates)
 }
@@ -45,3 +49,4 @@ function CreateCoordinatesfromPath(start_x, start_y, scale, path_list) {
 
     return new_path_list;
 }
+

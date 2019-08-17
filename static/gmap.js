@@ -1,14 +1,12 @@
-var labels = 'What the Fuck';
+var labels = 'YEET';
 var labelIndex = 0;
 var latvar = [0]; //first position
 var lngvar = [0];  //first position
 var map;
 
 function addLocation() {
-
-  latvar.push(parseFloat(document.getElementById("fname").value));
-  lngvar.push(parseFloat(document.getElementById("lname").value)+1);
-  document.getElementById("lname").value = parseFloat(document.getElementById("lname").value)+1;
+  document.getElementById("lat").innerHTML = latvar;
+  document.getElementById("lng").innerHTML = lngvar;
   labelIndex = 0;
 }
 
@@ -41,4 +39,17 @@ function addToMap(){
     }    
 
 }
+
+function addCoordinates(coordinates){
+    var i =0;
+    for (i = 0; i < coordinates.length; i++){
+        lngvar[i] = coordinates[i][0];
+        latvar[i] = coordinates[i][1];
+    }    
+
+}
+
+
 google.maps.event.addDomListener(window, 'load', initialize);
+
+

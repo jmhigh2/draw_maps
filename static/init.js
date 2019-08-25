@@ -15,16 +15,17 @@ function RenderToSVG() {
     var path = doc.documentElement['children'][2]['childNodes'][1]['attributes'][2]['nodeValue'];
     var path_object = SVGPathParser(path);
     var normalized_path = SVGPathNormalizer(path_object);
-    var SCALE = 0.005;//0.000005
-    //console.log(normalized_path);
-    var coordinates = CreateCoordinatesfromPath(-71.000000000001, -31.0000000000001, SCALE, normalized_path); //hardcode starting point
 
-    document.getElementById("coor").innerHTML = coordinates;
+    //console.log(normalized_path)
+    var SCALE = 0.05;//0.000005
+    //console.log(normalized_path);
+    var coordinates = CreateCoordinatesfromPath(0, 0, SCALE, normalized_path); //hardcode starting point
+
+    //document.getElementById("coor").innerHTML = coordinates;
     addCoordinates(coordinates); // FOR DEBUGGING
     addLocation(); // FOR DEBUGGING
     addToMap(coordinates);
-    console.log("Coordinates placeholder: ")
-    console.log(coordinates)
+    //console.log(coordinates)
 }
 
 function ClearGrid()
@@ -46,12 +47,12 @@ function CreateCoordinatesfromPath(start_x, start_y, scale, path_list) {
     for (var i = 1; i < path_list.length; i++) {
         switch (path_list[i][0]) {
             case "M":
-                x = x + path_list[i][1] * scale;
-                y = y + path_list[i][2] * scale;
+                x = path_list[i][1] * scale;
+                y = (path_list[i][2] * scale)*-1;
                 break;
             case "Q":
-                x = x + path_list[i][3] * scale;
-                y = y + path_list[i][4] * scale;
+                x = path_list[i][3] * scale;
+                y = (path_list[i][4] * scale)*-1;
                 break;
         }
         new_path_list.push([x, y]);

@@ -22,8 +22,8 @@ function RenderToSVG() {
     var coordinates = CreateCoordinatesfromPath(0, 0, SCALE, normalized_path); //hardcode starting point
 
     //document.getElementById("coor").innerHTML = coordinates;
-    addCoordinates(coordinates); // FOR DEBUGGING
-    addLocation(); // FOR DEBUGGING
+    //addCoordinates(coordinates); // FOR DEBUGGING
+    //addLocation(); // FOR DEBUGGING
     addToMap(coordinates);
     //console.log(coordinates)
 }
